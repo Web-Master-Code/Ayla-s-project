@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع تعليمي للبرمجة</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo.jpeg">
+</head>
+<body>
+    <header>
+        <h1>موقع تعليمي للبرمجة</h1>
+    </header>
+    <nav>
+        <a href="#">الرئيسية</a>
+        <a href="#">الدروس</a>
+        <a href="#">التمارين</a>
+        <a href="#">المشاريع</a>
+        <a href="#">اتصل بنا</a>
+    </nav>
+    <aside>
+        <h2>روابط سريعة</h2>
+        <ul>
+            <a href="#">HTML/CSS</a>
+            <a href="#">JavaScript</a>
+            <a href="#">React</a>
+            <a href="#">Bootstrap</a>
+            <a href="#">Python</a>
+            <a href="#">C++</a>
+            <a href="#">C#</a>
+            <a href="#">php</a>
+            <a href="#">mySQL</a>
+        </ul>
+    </aside>
+    <main>
+
+        <h2>مرحبًا بك في موقعنا التعليمي!</h2>
+        <p>نقدم لك دروسًا ممتعة في عالم البرمجة وتطوير البرمجيات.</p>
+
+        <div class="img-slider">
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img src="images/img1.jpeg" style="width:100%">
+                </div>
+                
+                <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img src="images/img2.jpeg" style="width:100%">
+                </div>
+                
+                <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img src="images/img3.jpeg" style="width:100%">
+                </div>
+                
+            </div>
+            <br>
+                
+            <div style="text-align:center">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+            </div>
+                
+            <script>
+                let slideIndex = 0;
+                showSlides();
+                
+                function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}    
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " active";
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+                }
+            </script>
+        </div>
+
+    </main>
+    <footer>
+        <p>جميع الحقوق محفوظة © 2024</p>
+        <p>برمج الموقع بواسطة بواسطة أيلا</p>
+    </footer>
+</body>
+</html>
