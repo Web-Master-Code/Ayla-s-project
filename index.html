@@ -4,93 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقع تعليمي للبرمجة</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="images/logo.jpeg">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="images/ayla-logo-zip-file/png/logo-black.png">
 </head>
 <body>
-    <header>
-        <h1>موقع تعليمي للبرمجة</h1>
+
+    <header class="head">
+        <h1 class="head-text">موقع أيلا لتعليم البرمجة</h1>
+        <img src="images/ayla-logo-zip-file/png/logo-black.png" class="head-logo">
     </header>
-    <nav>
-        <a href="#">الرئيسية</a>
-        <a href="#">الدروس</a>
-        <a href="#">التمارين</a>
-        <a href="#">المشاريع</a>
-        <a href="#">اتصل بنا</a>
+
+
+    <nav class="navbar">
+
+        <span class="nav-text">اتصل بنا</span>
+        <span class="nav-text">من نحن</span>
+        <span class="nav-text">اللغات التي نقدمها</span>
+        <span class="nav-text">الأكواد</span>
+        <span class="nav-text">الرئيسية</span>
+
     </nav>
-    <aside>
-        <h2>روابط سريعة</h2>
-        <ul>
-            <a href="#">HTML/CSS</a>
-            <a href="#">JavaScript</a>
-            <a href="#">React</a>
-            <a href="#">Bootstrap</a>
-            <a href="#">Python</a>
-            <a href="#">C++</a>
-            <a href="#">C#</a>
-            <a href="#">php</a>
-            <a href="#">mySQL</a>
-        </ul>
-    </aside>
-    <main>
 
-        <h2>مرحبًا بك في موقعنا التعليمي!</h2>
-        <p>نقدم لك دروسًا ممتعة في عالم البرمجة وتطوير البرمجيات.</p>
+    <main class="main-container">
 
-        <div class="img-slider">
+        <aside class="aside">
+
+            <span class="aside-text1">روابط وصول سريعة</span>
+            <div class="linked">
+                <div class="linked-text">Html</div>
+                <div class="linked-text">Css</div>
+                <div class="linked-text">JS</div>
+                <div class="linked-text">Bootstrap</div>
+            </div>
+
+        </aside>
+
+        <section class="container1">
+            <span>مرحبا بكم في موقع أيلا لتعليم البرمجة</span>
+            <p>هنا بإماكانكم رؤية المواضيع التي نقدم تعليمها :</p>
+
             <div class="slideshow-container">
 
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+
                 <div class="mySlides fade">
-                <div class="numbertext">1 / 3</div>
-                <img src="images/img1.jpeg" style="width:100%">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="images/ayla-logo-zip-file/png/logo-no-background.png" style="width:220px;">
+                    <div class="text">Third</div>
+                  </div>  
+                
+                <div class="mySlides fade">
+                  <div class="numbertext">2 / 3</div>
+                  <img src="images/ayla-logo-zip-file/png/logo-white.png" style="width:220px;">
+                  <div class="text">Second</div>
                 </div>
                 
                 <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
-                <img src="images/img2.jpeg" style="width:100%">
-                </div>
-                
-                <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
-                <img src="images/img3.jpeg" style="width:100%">
-                </div>
+                    <div class="numbertext">1 / 3</div>
+                    <img src="images/ayla-logo-zip-file/png/logo-black.png" style="width:220px;">
+                    <div class="text">First</div>
+                  </div>
+
+                <a class="next" onclick="plusSlides(1)">❯</a>
                 
             </div>
             <br>
                 
             <div style="text-align:center">
-                <span class="dot"></span> 
-                <span class="dot"></span> 
-                <span class="dot"></span> 
+                  <span class="dot" onclick="currentSlide(1)"></span> 
+                  <span class="dot" onclick="currentSlide(2)"></span> 
+                  <span class="dot" onclick="currentSlide(3)"></span> 
             </div>
                 
             <script>
-                let slideIndex = 0;
-                showSlides();
+                let slideIndex = 1;
+                showSlides(slideIndex);
                 
-                function showSlides() {
-                let i;
-                let slides = document.getElementsByClassName("mySlides");
-                let dots = document.getElementsByClassName("dot");
-                for (i = 0; i < slides.length; i++) {
+                function plusSlides(n) {
+                  showSlides(slideIndex += n);
+                }
+                
+                function currentSlide(n) {
+                  showSlides(slideIndex = n);
+                }
+                
+                function showSlides(n) {
+                  let i;
+                  let slides = document.getElementsByClassName("mySlides");
+                  let dots = document.getElementsByClassName("dot");
+                  if (n > slides.length) {slideIndex = 1}    
+                  if (n < 1) {slideIndex = slides.length}
+                  for (i = 0; i < slides.length; i++) {
                     slides[i].style.display = "none";  
-                }
-                slideIndex++;
-                if (slideIndex > slides.length) {slideIndex = 1}    
-                for (i = 0; i < dots.length; i++) {
+                  }
+                  for (i = 0; i < dots.length; i++) {
                     dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex-1].style.display = "block";  
-                dots[slideIndex-1].className += " active";
-                setTimeout(showSlides, 2000); // Change image every 2 seconds
+                  }
+                  slides[slideIndex-1].style.display = "block";  
+                  dots[slideIndex-1].className += " active";
                 }
             </script>
-        </div>
+                
+
+        </section>
 
     </main>
-    <footer>
-        <p>جميع الحقوق محفوظة © 2024</p>
-        <p>برمج الموقع بواسطة بواسطة أيلا</p>
+
+    <footer class="footer">
+
+        <span class="footer-text">كامل حقوق النشر محفوظة &copy; 2024</span>
+
     </footer>
+
 </body>
 </html>
